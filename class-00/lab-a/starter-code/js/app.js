@@ -34,7 +34,7 @@ function displayPics(){
     while(!viewed.includes(rando)){
       viewed.push(rando);
     }
-  console.log(rando);
+    console.log(rando);
   }
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
   // PUT YOUR RESPONSE IN THIS COMMENT
@@ -62,7 +62,7 @@ function handleClick(event) {
   for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
-      console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
+      console.log(`${event.target.id} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`);
     }
   }
   localStorage.busmall = JSON.stringify(allProducts);
@@ -73,7 +73,7 @@ function handleClick(event) {
 function showList() {
   for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
-    liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+    liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
     list.appendChild(liEl);
   }
 }
@@ -98,7 +98,7 @@ function makeChart(){
         backgroundColor: 'gold',
         borderColor: '#214',
         data: votes,
-      }]
+      }],
     },
     options: {
       responsive: false,
@@ -107,11 +107,11 @@ function makeChart(){
           ticks: {
             max: 20,
             min: 0,
-            stepSize: 1
-          }
-        }]
-      }
-    }
+            stepSize: 1,
+          },
+        }],
+      },
+    },
   });
   Chart.defaults.global.defaultFontColor = '#eee'; //eslint-disable-line
 }
