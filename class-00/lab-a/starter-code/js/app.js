@@ -6,7 +6,7 @@ const leftImage = document.getElementById('left');
 const centerImage = document.getElementById('center');
 const rightImage = document.getElementById('right');
 
-const allProducts = [];
+let allProducts = [];
 const container = document.getElementById('image_container');
 const viewed = [];
 const labels = [];
@@ -18,7 +18,7 @@ const votes = [];
 
 function Product(name) {
   this.name = name;
-  this.path = 'img/' + name + '.jpg';
+  this.path = `img/${name}.jpg`;
   this.votes = 0;
   this.views = 0;
   allProducts.push(this);
@@ -36,8 +36,8 @@ function displayPics(){
     }
     console.log(rando);
   }
-  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
-  // PUT YOUR RESPONSE IN THIS COMMENT
+  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `var to `let`.
+  // PUT YOUR RESPONSE IN THIS COMMENT since rando is inside th function displayPics it the console log doesnt have access to the console.log. I fixed this by moving the console.log up into the function
   console.log(viewed);
 
   for (let i = 0; i < 3; i++){
